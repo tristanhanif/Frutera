@@ -80,6 +80,7 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
     Bluesky account or the
     <a href="https://x.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
     X account for latest news in the Vue world.
+    <p>hai affan ts, aku disini</p>
   </WelcomeItem>
 
   <WelcomeItem>
