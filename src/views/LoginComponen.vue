@@ -1,9 +1,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { useRouter } from 'vue-router';
 
-const router = useRouter()
 const form = reactive({
     email: '',
     password: ''
@@ -22,7 +20,7 @@ const login = () => {
 
         form.email = '';
         form.password = '';
-        router.push('/home');
+        window.location = '/home'
     }
 }
 </script>

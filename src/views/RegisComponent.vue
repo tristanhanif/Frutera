@@ -1,8 +1,6 @@
 <script setup>
-import { useRouter } from 'vue-router';
 import { reactive } from 'vue';
 
-const router = useRouter();
 const form = reactive({
   firstName: '',
   lastName: '',
@@ -11,15 +9,15 @@ const form = reactive({
 });
 
 const register = () => {
-  const user = JSON.parse(localStorage.getItem('user')) || [];
-  user.push({
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  users.push({
     firstName: form.firstName,
     lastName: form.lastName,
     email: form.email,
     password: form.password,
   });
 
-  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('users', JSON.stringify(users));
 
   alert('Registration successful!');
 
@@ -27,7 +25,7 @@ const register = () => {
   form.lastName = '';
   form.email = '';
   form.password = '';
-  router.push('/login');
+  window.location = '/'
 }
 </script>
 
@@ -37,62 +35,64 @@ const register = () => {
       <div class="w-full max-w-md">
         <div class="flex mb-8">
           <div class="flex transform hover:scale-105 transition-transform duration-300">
-            <img src="https://i.imgur.com/jbG9Hmk.jpeg" alt="Fruteraa Logo"
-                 class="h-12 w-12 mr-2 animate-bounce" style="animation-duration: 2s;">
+            <img src="https://i.imgur.com/jbG9Hmk.jpeg" alt="Fruteraa Logo" class="h-12 w-12 mr-2 animate-bounce"
+              style="animation-duration: 2s;">
             <h1 class="text-3xl font-bold text-green-600">Frut<span class="text-yellow-400">eraa</span></h1>
           </div>
         </div>
 
         <div class="animate-fade-in-down">
           <h2 class="text-2xl font-bold text-green-600 mb-2">Sign Up</h2>
-          <p class="text-gray-600 text-center mb-8">Fill your information below or register with your social account.</p>
+          <p class="text-gray-600 text-center mb-8">Fill your information below or register with your social account.
+          </p>
         </div>
 
         <form class="space-y-5" @submit.prevent="register">
           <div class="grid grid-cols-2 gap-4">
             <div class="animate-fade-in-left" style="animation-delay: 0.1s">
               <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-              <input v-model="firstName" type="text" required
+              <input v-model="form.firstName" type="text" required
                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-300 hover:shadow-md"
                 placeholder="Enter First Name" />
             </div>
             <div class="animate-fade-in-right" style="animation-delay: 0.1s">
               <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-              <input v-model="lastName" type="text" required
+              <input v-model="form.lastName" type="text" required
                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-300 hover:shadow-md"
                 placeholder="Enter Last Name" />
             </div>
           </div>
-          <div class="border-t border-gray-200 my-4 transform origin-left scale-x-0 animate-scale-in" style="animation-delay: 0.2s"></div>
+          <div class="border-t border-gray-200 my-4 transform origin-left scale-x-0 animate-scale-in"
+            style="animation-delay: 0.2s"></div>
 
           <div class="animate-fade-in-up" style="animation-delay: 0.3s">
             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input v-model="email" type="email" required
+            <input v-model="form.email" type="email" required
               class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-300 hover:shadow-md"
               placeholder="Enter Your Email" />
           </div>
 
           <div class="animate-fade-in-up" style="animation-delay: 0.4s">
             <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input v-model="password" type="password" required
+            <input v-model="form.password" type="password" required
               class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-300 hover:shadow-md"
               placeholder="Enter Your Password" />
           </div>
 
           <div class="flex items-center animate-fade-in" style="animation-delay: 0.5s">
-            <input v-model="agreeTerms" type="checkbox"
+            <input type="checkbox"
               class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded transition duration-300" />
             <label class="ml-2 text-sm text-gray-700">
-              Agree with <a href="#" class="text-green-600 hover:text-green-500 transition duration-300">Terms & Conditions</a> and <a href="#" class="text-green-600 hover:text-green-500 transition duration-300">Privacy Policy</a>
+              Agree with <a href="#" class="text-green-600 hover:text-green-500 transition duration-300">Terms &
+                Conditions</a> and <a href="#"
+                class="text-green-600 hover:text-green-500 transition duration-300">Privacy Policy</a>
             </label>
           </div>
-
-          <a href="/login" @click="register"><button type="submit"
+          <button type="submit"
             class="w-full bg-green-600 text-white py-3 px-4 rounded-xl hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-medium transition duration-300 transform hover:scale-[1.02]"
-            :class="{'animate-pulse': isSubmitting}">
-            {{ isSubmitting ? 'Processing...' : 'Sign Up' }}
+            >
+            Sign Up
           </button>
-          </a>
         </form>
 
         <div class="relative my-6 animate-fade-in" style="animation-delay: 0.6s">
@@ -136,17 +136,21 @@ const register = () => {
     <div class="hidden lg:block lg:w-1/2 bg-[#1C8057] relative overflow-hidden">
       <div class="flex items-center justify-center p-12 h-full flex-col">
         <div class="absolute inset-0 overflow-hidden">
-          <div class="absolute top-10 left-20 w-16 h-16 bg-yellow-300 rounded-full opacity-10 animate-float" style="animation-delay: 0s; animation-duration: 15s;"></div>
-          <div class="absolute top-1/4 right-20 w-24 h-24 bg-red-400 rounded-full opacity-10 animate-float" style="animation-delay: 2s; animation-duration: 18s;"></div>
-          <div class="absolute bottom-20 left-1/4 w-20 h-20 bg-orange-300 rounded-full opacity-10 animate-float" style="animation-delay: 4s; animation-duration: 20s;"></div>
-          <div class="absolute bottom-1/3 right-1/4 w-12 h-12 bg-green-300 rounded-full opacity-10 animate-float" style="animation-delay: 1s; animation-duration: 16s;"></div>
+          <div class="absolute top-10 left-20 w-16 h-16 bg-yellow-300 rounded-full opacity-10 animate-float"
+            style="animation-delay: 0s; animation-duration: 15s;"></div>
+          <div class="absolute top-1/4 right-20 w-24 h-24 bg-red-400 rounded-full opacity-10 animate-float"
+            style="animation-delay: 2s; animation-duration: 18s;"></div>
+          <div class="absolute bottom-20 left-1/4 w-20 h-20 bg-orange-300 rounded-full opacity-10 animate-float"
+            style="animation-delay: 4s; animation-duration: 20s;"></div>
+          <div class="absolute bottom-1/3 right-1/4 w-12 h-12 bg-green-300 rounded-full opacity-10 animate-float"
+            style="animation-delay: 1s; animation-duration: 16s;"></div>
         </div>
 
         <h1 class="mb-8 text-5xl font-bold text-white transform hover:scale-105 transition-transform duration-300">
           Frut<span class="text-yellow-300">eraa</span>
         </h1>
 
-        <img src="https://i.imgur.com/1y9D8sL.png" alt="Fruteraa Fruits"
+        <img src="https://i.imgur.com/1y9D8sL.png" alt="Frutaraa Fruits"
           class="rounded-xl object-cover w-[400px] animate-float-slow transform transition-transform duration-1000 hover:scale-105">
 
         <p class="mt-8 text-lg text-white/90 max-w-md text-center animate-fade-in-up">
@@ -163,6 +167,7 @@ const register = () => {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -174,6 +179,7 @@ const register = () => {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -185,6 +191,7 @@ const register = () => {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -196,6 +203,7 @@ const register = () => {
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -206,6 +214,7 @@ const register = () => {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -215,6 +224,7 @@ const register = () => {
   from {
     transform: scaleX(0);
   }
+
   to {
     transform: scaleX(1);
   }
@@ -224,9 +234,11 @@ const register = () => {
   0% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-20px) rotate(10deg);
   }
+
   100% {
     transform: translateY(0) rotate(0deg);
   }
@@ -236,9 +248,11 @@ const register = () => {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
