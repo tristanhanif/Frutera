@@ -1,6 +1,6 @@
 import './assets/base.css'
 
 import { createApp } from 'vue'
-import LoginComponen from './components/LoginComponen.vue'
+import LoginComponen from './views/LoginComponen.vue'
 
 createApp(LoginComponen).mount('#app')

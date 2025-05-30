@@ -1,22 +1,46 @@
+
+<script setup>
+import { reactive } from 'vue'
+
+const form = reactive({
+    email: '',
+    password: ''
+});
+
+const login = () => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const foundUser = users.find(user => user.email === form.email && user.password === form.password);
+
+    if (!foundUser) {
+        alert('Invalid email or password');
+        return;
+    } else {
+        alert('Login successful!');
+        localStorage.setItem('currentUser', JSON.stringify(foundUser));
+
+        form.email = '';
+        form.password = '';
+        window.location = '/home'
+    }
+}
+</script>
+
+
 <template>
-  <div class="min-h-screen flex">
-    <!-- Bagian Gambar -->
-    <div class="hidden lg:block lg:w-1/2 bg-green-800">
+  <div class="min-h-screen flex bg-[#1C8057]">
+    <div class="hidden lg:block lg:w-1/2 bg-[#1C8057]">
       <div class="flex items-center justify-center p-12 mt-12 flex-col">
-        <h1 class="mb-12 text-6xl font-bold text-green-600">Frut<span class="text-yellow-400">eraa</span></h1>
-        <img src="https://i.imgur.com/1y9D8sL.png" alt="Fruteraa Fruits"
-          class="rounded-xl object-cover h-full w-[400px]">
+        <h1 class="mb-12 text-6xl font-bold text-white">Frut<span class="text-[#FFC300]">eraa</span></h1>
+        <img src="https://i.imgur.com/1y9D8sL.png" alt="Fruteraa Fruits" class="object-cover h-full w-[400px]">
       </div>
     </div>
 
-    <!-- Bagian Form -->
-    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 rounded-2xl">
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 rounded-3xl bg-white">
       <div class="w-full max-w-md">
-        <!-- Logo -->
         <div class="flex mb-8">
           <div class="flex">
             <img src="https://i.imgur.com/jbG9Hmk.jpeg" alt="Fruteraa Logo" class="h-12 w-12 mr-2">
-            <h1 class="text-3xl font-bold text-green-600">Frut<span class="text-yellow-400">eraa</span></h1>
+            <h1 class="text-3xl font-bold text-[#1C8057]">Frut<span class="text-[#FFC300]">eraa</span></h1>
           </div>
         </div>
 
@@ -44,13 +68,10 @@
                 class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" />
               <label class="ml-2 text-sm text-gray-700">Remember Me</label>
             </div>
-            <a href="#" class="text-sm text-green-600 hover:text-green-500">Forgot Password?</a>
+            <a href="#" class="text-sm text-[#1C8057] hover:text-green-500">Forgot Password?</a>
           </div>
 
-          <button type="submit"
-            class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-medium transition duration-200">
-            Sign In
-          </button>
+          <a href="/home"><button type="submit" class="w-full bg-[#1C8057] text-white py-3 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-medium transition duration-200" @click="login">Sign In</button></a>
         </form>
 
         <div class="relative my-6">
@@ -83,7 +104,7 @@
 
         <div class="mt-8 text-center text-sm">
           <span class="text-gray-600">Don't have an account?</span>
-          <a href="#" class="ml-1 text-green-600 hover:text-green-500 font-medium" @click.prevent="signUp">
+          <a href="/regis" class="ml-1 text-[#1C8057] hover:text-green-500 font-medium">
             Sign up
           </a>
         </div>
@@ -91,31 +112,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'FruteraaLoginWithImage',
-  data() {
-    return {
-      email: '',
-      password: '',
-      rememberMe: false
-    }
-  },
-  methods: {
-    handleSubmit() {
-      console.log('Login submitted:', {
-        email: this.email,
-        password: this.password,
-        rememberMe: this.rememberMe
-      })
-    },
-    signInWithGoogle() {
-      console.log('Sign in with Google clicked')
-    },
-    signUp() {
-      console.log('Sign up clicked')
-    }
-  }
-}
-</script>

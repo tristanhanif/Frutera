@@ -13,17 +13,19 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
     tailwindcss(),
-    autoprefixer()
+    autoprefixer(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      
+
     },
   },
   build: {
     rollupOptions: {
-      login: "login.html"
+      login: "login.html",
+      regis: "regis.html",
+      home: "home.html",
     }
   }
 })
