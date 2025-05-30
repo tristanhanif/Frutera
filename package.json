@@ -15,7 +15,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "tailwindcss": "^4.1.7",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13"5c17f0bc06ce1639b45ffe0f32b7453065f02
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",

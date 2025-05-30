@@ -10,7 +10,8 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-    tailwindcss()
+    tailwindcss(),
+    autoprefixer(),
   ],
   resolve: {
     alias: {
@@ -20,7 +21,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       register: "register.html",
-      home: "home.html"
+      home: "home.html",
+      login: "login.html",
+      regis: "regis.html",
+      home: "home.html",
     }
   }
 })
