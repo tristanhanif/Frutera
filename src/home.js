@@ -4,3 +4,10 @@ import { createApp } from 'vue'
 import HomeComponen from './views/HomeComponen.vue'
 
 createApp(HomeComponen).mount('#app')
+
+import './assets/main.css'
+
+import { createApp } from 'vue'
+import HomeComponen from './components/HomeComponen.vue'
+
+createApp(HomeComponen).mount('#app')
