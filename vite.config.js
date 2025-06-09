@@ -11,20 +11,10 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     tailwindcss(),
-    autoprefixer(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  build: {
-    rollupOptions: {
-      register: "register.html",
-      home: "home.html",
-      login: "login.html",
-      regis: "regis.html",
-      home: "home.html",
-    }
-  }
 })
