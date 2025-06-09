@@ -489,55 +489,51 @@
     <!-- Promo Card -->
     <div
       class="absolute left-[120px] top-[1662px] w-[627px] h-[400px] bg-blue-50 rounded-2xl p-12 flex flex-col justify-start">
-      <!-- Discount Badge -->
-      <div class="w-fit px-6 py-3 bg-amber-400 rounded-full flex items-center justify-center mb-3">
+      <!-- Discount Badge - Positioned 35px from top and left -->
+      <div
+        class="absolute top-[35px] left-[35px] w-fit px-6 py-3 bg-amber-400 rounded-full flex items-center justify-center">
         <span class="text-xl font-semibold uppercase tracking-wide">
           Flat 20% Discount
         </span>
       </div>
 
-      <!-- Main Heading -->
-      <h2 class="text-4xl font-medium leading-tight mb-3">
-        Purely Fresh<br />
-        Vegetables
-      </h2>
+      <!-- Main Content - Adjusted to account for absolute positioned badge -->
+      <div class="mt-[86px]"> <!-- 35px (position) + 51px (badge height) -->
+        <!-- Main Heading -->
+        <h2 class="text-4xl font-medium leading-tight mb-3">
+          Purely Fresh<br />
+          Vegetables
+        </h2>
 
-      <!-- Description -->
-      <p class="text-base font-normal mb-6 max-w-[90%] text-gray-600">
-        Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit
-      </p>
+        <!-- Description -->
+        <p class="text-base font-normal mb-6 max-w-[90%] text-gray-600">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </p>
 
-      <!-- CTA Button -->
-      <button
-        class="w-[190px] h-[60px] bg-green-700 rounded-full flex items-center justify-center gap-2 text-white hover:bg-green-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-offset-2"
-        aria-label="Shop Now with 20% discount">
-        <span class="text-lg font-semibold capitalize">Shop Now</span>
-        <!-- Arrow Right Icon -->
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </button>
+        <!-- CTA Button -->
+        <button
+          class="w-[190px] h-[60px] bg-green-700 rounded-full flex items-center justify-center gap-2 text-white hover:bg-green-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-700 focus:ring-offset-2"
+          aria-label="Shop Now with 20% discount">
+          <span class="text-lg font-semibold capitalize">Shop Now</span>
+          <!-- Arrow Right Icon -->
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import AOS from 'aos';
+import { ref } from 'vue';
+// import AOS from 'aos';
 
 
 const isCategoryOpen = ref(false);
 const recentItems = ref([]);
 
-onMounted(() => {
-  AOS.init({
-    once: true,
-    offset: 120,
-    delay: 100,
-    duration: 600,
-    easing: 'ease-out-quart',
-  });
-});
 recentItems.value = [
   { id: 1, name: "Organic Apple", price: "$2.99/kg", image: "https://i.pinimg.com/736x/6f/7b/0b/6f7b0bbf2a84909bbb19cad4fcedb294.jpg" },
   { id: 2, name: "Fresh Avocado", price: "$4.50/pcs", image: "https://i.pinimg.com/736x/42/c4/35/42c43502869c7f686466775f1ddbb736.jpg" }
