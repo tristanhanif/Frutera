@@ -5,8 +5,6 @@ import { RouterView } from 'vue-router';
 
 <template>
   <div class="p-4">
-    <h1 class="text-2xl font-bold mb-4">Selamat Datang di Frutera</h1>
-
     <!-- Heroicons -->
     <div class="flex items-center gap-4 mb-6">
       <!-- <SearchIcon class="w-6 h-6 text-gray-500" /> -->
