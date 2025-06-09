@@ -4,12 +4,12 @@ import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div class="p-4">
+  <div>
     <!-- Heroicons -->
-    <div class="flex items-center gap-4 mb-6">
+    <!-- <div class="flex items-center gap-4 mb-6"> -->
       <!-- <SearchIcon class="w-6 h-6 text-gray-500" /> -->
       <!-- <HeartIcon class="w-6 h-6 text-red-500" /> -->
-    </div>
+    <!-- </div> -->
 
     <!-- Halaman dinamis -->
     <RouterView />
