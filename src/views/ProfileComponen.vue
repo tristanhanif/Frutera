@@ -3,7 +3,7 @@
     <!-- Top Bar -->
     <div class="w-full h-[65px] bg-[#f9c51a] flex items-center px-[69px]">
       <span class="text-lg text-black">Call Us : +123-456-789</span>
-      <div class="ml-auto flex items-center gap-4">
+      <div class="ml-auto flex .items-center gap-4">
         <span class="text-lg text-black">
           Sign up and GET 25% OFF for your first order.
           <span class="text-[#1d805a] underline">Sign up now</span>

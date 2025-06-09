@@ -432,36 +432,58 @@
     </div>
   </section>
 
-<section class="flex flex-col items-center">
+  <section class="flex flex-col items-center">
     <h2 class="text-[20px] font-medium mt-[50px] text-center">Categories</h2>
-    <h1 class="text-[48px] font-medium mt-[17px] text-center">Featured <span class="text-[#197852]">Categories</span></h1>
+    <h1 class="text-[48px] font-medium mt-[17px] text-center">Featured <span class="text-[#197852]">Categories</span>
+    </h1>
     <div class="w-full mt-[48px] px-[48px] relative">
-        <div class="overflow-x-auto whitespace-nowrap pb-4 scrollbar-hide" id="categories-scroll-container">
-            <div class="inline-flex gap-[42px]" id="categories-scroll-content">
-                <!-- Duplicate content for seamless looping -->
-                <div v-for="(cat, index) in categories" :key="index" class="flex flex-col items-center">
-                    <div class="rounded-full overflow-hidden flex items-center justify-center w-[200px] h-[200px]">
-                        <img :src="cat.image" :alt="cat.name" class="object-cover w-full h-full" />
-                    </div>
-                    <h3 class="text-[28px] font-semibold mt-[13px] capitalize">
-                        {{ cat.name }}
-                    </h3>
-                    <p class="text-[18px] mt-[-2px]">{{ cat.productCount }} Products</p>
-                </div>
-                <!-- Duplicate the same content again -->
-                <div v-for="(cat, index) in categories" :key="'copy-'+index" class="flex flex-col items-center">
-                    <div class="rounded-full overflow-hidden flex items-center justify-center w-[200px] h-[200px]">
-                        <img :src="cat.image" :alt="cat.name" class="object-cover w-full h-full" />
-                    </div>
-                    <h3 class="text-[28px] font-semibold mt-[13px] capitalize">
-                        {{ cat.name }}
-                    </h3>
-                    <p class="text-[18px] mt-[-2px]">{{ cat.productCount }} Products</p>
-                </div>
+      <div class="overflow-x-auto whitespace-nowrap pb-4 scrollbar-hide" id="categories-scroll-container">
+        <div class="inline-flex gap-[42px]" id="categories-scroll-content">
+          <!-- Original Content -->
+          <div v-for="(cat, index) in categories" :key="index"
+            class="flex flex-col items-center w-[240px] p-4 group transition-all duration-300 hover:scale-105 rounded-xl relative">
+            <!-- Border yang tidak mempengaruhi layout -->
+            <div
+              class="absolute inset-0 border-2 border-transparent group-hover:border-[#197852] rounded-xl pointer-events-none transition-all duration-300">
             </div>
+
+            <div class="rounded-full overflow-hidden flex items-center justify-center w-[200px] h-[200px]">
+              <img :src="cat.image" :alt="cat.name"
+                class="object-cover w-full h-full transition-all duration-300 group-hover:brightness-95" />
+            </div>
+            <h3
+              class="text-[28px] font-semibold mt-[13px] capitalize text-center transition-all duration-300 group-hover:text-[30px] truncate w-full px-2">
+              {{ cat.name }}
+            </h3>
+            <p class="text-[18px] mt-[-2px] transition-all duration-300 group-hover:text-[20px]">
+              {{ cat.productCount }} Products
+            </p>
+          </div>
+
+          <!-- Duplicate Content -->
+          <div v-for="(cat, index) in categories" :key="'copy-' + index"
+            class="flex flex-col items-center w-[240px] p-4 group transition-all duration-300 hover:scale-105 rounded-xl relative">
+            <!-- Border yang tidak mempengaruhi layout -->
+            <div
+              class="absolute inset-0 border-2 border-transparent group-hover:border-[#197852] rounded-xl pointer-events-none transition-all duration-300">
+            </div>
+
+            <div class="rounded-full overflow-hidden flex items-center justify-center w-[200px] h-[200px]">
+              <img :src="cat.image" :alt="cat.name"
+                class="object-cover w-full h-full transition-all duration-300 group-hover:brightness-95" />
+            </div>
+            <h3
+              class="text-[28px] font-semibold mt-[13px] capitalize text-center transition-all duration-300 group-hover:text-[30px] truncate w-full px-2">
+              {{ cat.name }}
+            </h3>
+            <p class="text-[18px] mt-[-2px] transition-all duration-300 group-hover:text-[20px]">
+              {{ cat.productCount }} Products
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 </template>
 
 <script setup>
@@ -545,55 +567,55 @@ const categories = [
   },
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('categories-scroll-container');
-    const content = document.getElementById('categories-scroll-content');
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.getElementById('categories-scroll-container');
+  const content = document.getElementById('categories-scroll-content');
 
-    if (container && content) {
-        let scrollAmount = 0;
-        const scrollSpeed = 1;
-        // const scrollDelay = 20;
-        let isScrolling = true;
-        let animationId;
-        let isHovered = false;
+  if (container && content) {
+    let scrollAmount = 0;
+    const scrollSpeed = 1;
+    // const scrollDelay = 20;
+    let isScrolling = true;
+    let animationId;
+    let isHovered = false;
 
-        function autoScroll() {
-            if (!isScrolling || isHovered) {
-                cancelAnimationFrame(animationId);
-                return;
-            }
+    function autoScroll() {
+      if (!isScrolling || isHovered) {
+        cancelAnimationFrame(animationId);
+        return;
+      }
 
-            scrollAmount += scrollSpeed;
+      scrollAmount += scrollSpeed;
 
-            // Reset scroll position when reaching the duplicated content
-            if (scrollAmount >= content.scrollWidth / 2) {
-                scrollAmount = 0;
-                container.scrollLeft = 0;
-            }
+      // Reset scroll position when reaching the duplicated content
+      if (scrollAmount >= content.scrollWidth / 2) {
+        scrollAmount = 0;
+        container.scrollLeft = 0;
+      }
 
-            container.scrollLeft = scrollAmount;
-            animationId = requestAnimationFrame(autoScroll);
-        }
-
-        // Pause on hover
-        container.addEventListener('mouseenter', () => {
-            isHovered = true;
-        });
-
-        // Resume when mouse leaves
-        container.addEventListener('mouseleave', () => {
-            isHovered = false;
-            animationId = requestAnimationFrame(autoScroll);
-        });
-
-        // Start auto-scroll
-        animationId = requestAnimationFrame(autoScroll);
-
-        // Cleanup on unmount
-        return () => {
-            cancelAnimationFrame(animationId);
-        };
+      container.scrollLeft = scrollAmount;
+      animationId = requestAnimationFrame(autoScroll);
     }
+
+    // Pause on hover
+    container.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    // Resume when mouse leaves
+    container.addEventListener('mouseleave', () => {
+      isHovered = false;
+      animationId = requestAnimationFrame(autoScroll);
+    });
+
+    // Start auto-scroll
+    animationId = requestAnimationFrame(autoScroll);
+
+    // Cleanup on unmount
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }
 });
 </script>
 
