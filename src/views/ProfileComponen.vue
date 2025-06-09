@@ -8,7 +8,7 @@
           Sign up and GET 25% OFF for your first order.
           <span class="text-[#1d805a] underline">Sign up now</span>
         </span>
-        <div class="flex gap-4">
+        <!-- <div class="flex gap-4">
           <img
             v-for="(icon, index) in topIcons"
             :key="index"
@@ -16,7 +16,7 @@
             class="w-[25px] h-[25px]"
             alt="Social icon"
           >
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -60,7 +60,7 @@
             >
           </div>
 
-          <div class="flex gap-4">
+          <!-- <div class="flex gap-4">
             <img
               v-for="(icon, index) in headerIcons"
               :key="index"
@@ -68,7 +68,7 @@
               class="w-[24px] h-[24px]"
               alt="Header icon"
             >
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -85,7 +85,7 @@
           </div>
         </div>
 
-        <div class="flex gap-[93px]">
+        <!-- <div class="flex gap-[93px]">
           <span
             v-for="(item, index) in navItems"
             :key="index"
@@ -93,7 +93,7 @@
           >
             {{ item }}
           </span>
-        </div>
+        </div> -->
 
         <div class="flex items-center gap-2">
           <span class="text-[18px] text-[#ffc300] font-medium">Recently Viewed</span>
