@@ -1,10 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import autoprefixer from 'autoprefixer'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,20 +11,10 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     tailwindcss(),
-    tailwindcss(),
-    autoprefixer(),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-
     },
   },
-  build: {
-    rollupOptions: {
-      login: "login.html",
-      regis: "regis.html",
-      home: "home.html",
-    }
-  }
 })
