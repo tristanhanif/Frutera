@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import { SearchIcon, HeartIcon } from '@heroicons/vue/outline'; // tambahkan ini
+// import { SearchIcon, HeartIcon } from '@heroicons/vue/outline';
 </script>
 
 <template>
@@ -9,8 +9,8 @@ import { SearchIcon, HeartIcon } from '@heroicons/vue/outline'; // tambahkan ini
 
     <!-- Heroicons -->
     <div class="flex items-center gap-4 mb-6">
-      <SearchIcon class="w-6 h-6 text-gray-500" />
-      <HeartIcon class="w-6 h-6 text-red-500" />
+      <!-- <SearchIcon class="w-6 h-6 text-gray-500" /> -->
+      <!-- <HeartIcon class="w-6 h-6 text-red-500" /> -->
     </div>
 
     <!-- Halaman dinamis -->

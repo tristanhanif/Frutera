@@ -188,12 +188,8 @@
 
 <script>
 import { ref } from 'vue';
-import ProductCard from './components/ProductCard.vue';
 
 export default {
-  components: {
-    ProductCard
-  },
   setup() {
     const socialIcons = ref([
       'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-06-09/LW8B1doO3h.png',
