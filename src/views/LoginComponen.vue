@@ -1,4 +1,3 @@
-
 <script setup>
 import { reactive } from 'vue'
 
@@ -9,14 +8,14 @@ const form = reactive({
 
 const login = () => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    const foundUser = users.find(user => user.email === form.email && user.password === form.password);
+    const foundUsers = users.find(user => user.email === form.email && user.password === form.password);
 
-    if (!foundUser) {
+    if (!foundUsers) {
         alert('Invalid email or password');
         return;
     } else {
         alert('Login successful!');
-        localStorage.setItem('currentUser', JSON.stringify(foundUser));
+        localStorage.setItem('currentUser', JSON.stringify(foundUsers));
 
         form.email = '';
         form.password = '';
@@ -27,7 +26,7 @@ const login = () => {
 
 
 <template>
-  <div class="min-h-screen flex bg-[#1C8057]">
+<div class="min-h-screen flex bg-[#1C8057]">
     <div class="hidden lg:block lg:w-1/2 bg-[#1C8057]">
       <div class="flex items-center justify-center p-12 mt-12 flex-col">
         <h1 class="mb-12 text-6xl font-bold text-white">Frut<span class="text-[#FFC300]">eraa</span></h1>
@@ -47,17 +46,17 @@ const login = () => {
         <h2 class="text-2xl font-semibold text-gray-800 mb-2">Sign In</h2>
         <p class="text-gray-600 mb-8">Please fill your detail to access your account.</p>
 
-        <form class="space-y-4" @submit.prevent="handleSubmit">
+        <form class="space-y-4" @submit.prevent="login">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input v-model="email" type="email" required
+            <input v-model="form.email" type="email" required
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Enter Your Email" />
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input v-model="password" type="password" required
+            <input v-model="form.password" type="password" required
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Enter Your Password" />
           </div>
