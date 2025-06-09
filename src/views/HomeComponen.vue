@@ -543,22 +543,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import AOS from 'aos';
-
+import { ref } from 'vue';
 
 const isCategoryOpen = ref(false);
 const recentItems = ref([]);
 
-onMounted(() => {
-  AOS.init({
-    once: true,
-    offset: 120,
-    delay: 100,
-    duration: 600,
-    easing: 'ease-out-quart',
-  });
-});
 recentItems.value = [
   { id: 1, name: "Organic Apple", price: "$2.99/kg", image: "https://i.pinimg.com/736x/6f/7b/0b/6f7b0bbf2a84909bbb19cad4fcedb294.jpg" },
   { id: 2, name: "Fresh Avocado", price: "$4.50/pcs", image: "https://i.pinimg.com/736x/42/c4/35/42c43502869c7f686466775f1ddbb736.jpg" }
