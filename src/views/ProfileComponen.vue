@@ -162,7 +162,7 @@
                   <span class="text-sm font-medium text-green-600">{{ profileCompletion }}%</span>
                 </div>
                 <div class="w-full bg-green-200 rounded-full h-2">
-                  <div class="bg-green-600 h-2 rounded-full" :style="width: ${profileCompletion}%"></div>
+                  <div class="bg-green-600 h-2 rounded-full" :style="{ width: profileCompletion + '%' }"></div>
                 </div>
               </div>
 
@@ -788,13 +788,13 @@ export default {
         return 'just now';
       } else if (diff < hour) {
         const minutes = Math.floor(diff / minute);
-        return ${minutes} min ago;
+        return minutes + ' min ago';
       } else if (diff < day) {
         const hours = Math.floor(diff / hour);
-        return ${hours} hour${hours > 1 ? 's' : ''} ago;
+        return hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
       } else {
         const days = Math.floor(diff / day);
-        return ${days} day${days > 1 ? 's' : ''} ago;
+        return days + ' day' + (days > 1 ? 's' : '') + ' ago';
       }
     },
     showSuccess(message) {
