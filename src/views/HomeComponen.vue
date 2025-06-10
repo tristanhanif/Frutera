@@ -587,8 +587,8 @@
               <div v-for="(social, index) in socialMedia" :key="index" class="group relative">
                 <div
                   class="w-[27px] h-[27px] rounded-full bg-white flex items-center justify-center transition-all duration-300 group-hover:w-[35px] group-hover:h-[35px]"
-                  :class="group-hover:bg-[${social.color}]">
-                  <a href="#"><i :class="${social.icon} text-[20px] text-black group-hover:text-white"></i></a>
+                  :class="`group-hover:bg-[${social.color}]`">
+                  <a href="#"><i :class="`${social.icon} text-[20px] text-black group-hover:text-white`"></i></a>
                 </div>
                 <span
                   class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
@@ -659,7 +659,7 @@ const toggleCategory = () => {
 };
 
 const viewProduct = (id) => {
-  console.log(Viewing product ${id});
+  console.log(`Viewing product ${id}`);
 };
 
 const viewAllHistory = () => {

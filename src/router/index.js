@@ -8,13 +8,13 @@ const HomeComponen = () => import('../views/HomeComponen.vue')
 const LoginComponen = () => import('../views/LoginComponen.vue')
 const RegisComponent = () => import('../views/RegisComponent.vue')
 const ShopComponen = () => import('../views/ShopComponen.vue')
-
+const ProfileComponen = () => import('../views/ProfileComponen.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: LoginComponen
     },
@@ -33,6 +33,11 @@ const router = createRouter({
       name: 'shop',
       component: ShopComponen
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileComponen
+    }
   ]
 })
 

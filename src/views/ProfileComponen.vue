@@ -163,7 +163,6 @@
                 </div>
                 <div class="w-full bg-green-200 rounded-full h-2">
                   <div class="bg-green-600 h-2 rounded-full" :style="`width: ${profileCompletion}%`"></div>
-                </div>
               </div>
 
               <div class="mt-6 space-y-3">
