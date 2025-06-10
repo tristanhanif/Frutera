@@ -384,6 +384,8 @@
           </div>
         </div>
       </div>
+      </div>
+      <!-- Close flex flex-col lg:flex-row gap-6 -->
     </main>
 
     <!-- Avatar Upload Modal with Vegetable Theme -->
