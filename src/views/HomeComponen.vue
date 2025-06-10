@@ -120,7 +120,7 @@
                 <span
                   class="absolute bottom-[-10px] left-0 w-full h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#"
+              <a href="/shop"
                 class="nav-link text-[18px] font-medium text-white opacity-50 hover:opacity-100 transition-opacity duration-300 relative group"
                 data-target="shop">
                 Shop
@@ -359,28 +359,31 @@
 
       <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500"
         class="absolute top-[495px] left-[120px] flex items-end">
-        <div v-for="(avatar, index) in [
-          { img: 'https://i.pinimg.com/736x/d5/f2/0e/d5f20ebf66f702bf5538e0967a42f7fb.jpg', name: 'Sarah' },
-          { img: 'https://i.pinimg.com/736x/cf/d4/13/cfd413c84851920d5dbc820610176e41.jpg', name: 'John' },
-          { img: 'https://i.pinimg.com/736x/5c/2c/71/5c2c71a48d6d1a166c529c2c9d2c7348.jpg', name: 'Roshida John' },
-          { img: 'https://i.pinimg.com/736x/ca/82/1f/ca821ff208476fdad21bc3f3b0f6a6cc.jpg', name: 'Michael' },
-          { img: 'https://i.pinimg.com/736x/d9/b6/1a/d9b61a74e0ca7c64d50d27bb42013b4b.jpg', name: 'Affan Muhammad' }
-        ]" :key="index" class="relative group transition-all duration-300 ease-in-out flex flex-col items-center"
-          :style="{ 'margin-left': index > 0 ? '-20px' : '0', 'z-index': 5 - index }" data-aos="fade-up"
-          :data-aos-delay="500 + (index * 100)">
+        <div class="flex flex-row">
 
-          <div
-            class="w-[60px] h-[60px] rounded-full border-2 border-white overflow-hidden
-                group-hover:w-[80px] group-hover:h-[80px] group-hover:ml-[10px] group-hover:mr-[10px] transition-all duration-300 ease-in-out">
-            <img :src="avatar.img" :alt="avatar.name" class="w-full h-full object-cover">
-          </div>
-          <div
-            class="absolute top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-            <span class="bg-[#197852] text-white text-xs font-semibold px-3 py-1 rounded-md whitespace-nowrap block">
-              {{ avatar.name }}
-            </span>
+          <div v-for="(avatar, index) in [
+            { img: 'https://i.pinimg.com/736x/d5/f2/0e/d5f20ebf66f702bf5538e0967a42f7fb.jpg', name: 'Sarah' },
+            { img: 'https://i.pinimg.com/736x/cf/d4/13/cfd413c84851920d5dbc820610176e41.jpg', name: 'John' },
+            { img: 'https://i.pinimg.com/736x/5c/2c/71/5c2c71a48d6d1a166c529c2c9d2c7348.jpg', name: 'Roshida John' },
+            { img: 'https://i.pinimg.com/736x/ca/82/1f/ca821ff208476fdad21bc3f3b0f6a6cc.jpg', name: 'Michael' },
+            { img: 'https://i.pinimg.com/736x/d9/b6/1a/d9b61a74e0ca7c64d50d27bb42013b4b.jpg', name: 'Affan Muhammad' }
+          ]" :key="index" class="relative group transition-all duration-300 ease-in-out flex flex-col items-center"
+            :style="{ 'margin-left': index > 0 ? '-20px' : '0', 'z-index': 5 - index }" data-aos="fade-up"
+            :data-aos-delay="500 + (index * 100)">
+
             <div
-              class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-green-500 mx-auto">
+              class="w-[60px] h-[60px] rounded-full border-2 border-white overflow-hidden
+                  group-hover:w-[80px] group-hover:h-[80px] group-hover:ml-[10px] group-hover:mr-[10px] transition-all duration-300 ease-in-out">
+              <img :src="avatar.img" :alt="avatar.name" class="w-full h-full object-cover">
+            </div>
+            <div
+              class="absolute top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
+              <span class="bg-[#197852] text-white text-xs font-semibold px-3 py-1 rounded-md whitespace-nowrap block">
+                {{ avatar.name }}
+              </span>
+              <div
+                class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-green-500 mx-auto">
+              </div>
             </div>
           </div>
         </div>
@@ -390,7 +393,8 @@
         </div>
       </div>
       <div class="absolute top-[52px] right-[52px] w-[1158px] h-[670px] overflow-hidden">
-        <img src="https://i.imgur.com/IHCCxr9.png" alt="Grocery Products" class="w-full h-full object-cover">
+        <img src="https://i.imgur.com/IHCCxr9.png" alt="Grocery Products" height="670" width="1158"
+          class="object-cover">
       </div>
 
       <!-- Kotak Pertama - Secure Payment -->
@@ -539,6 +543,103 @@
         </div>
       </div>
     </section>
+
+    <div class="container mx-auto text-center mt-[84px] relative">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-white/20"></div>
+        <img src="https://i.imgur.com/ebI9RQk.png" alt="Background" class="w-full h-[1320px] object-cover">
+      </div>
+      <div class="relative z-10">
+        <h2 class="text-[31px] font-normal">Our Newsletter</h2>
+        <h3 class="text-[40px] font-semibold mt-6">Subscribe to Our Newsletter to</h3>
+        <div class="text-[48px] font-semibold">
+          <span>Get </span>
+          <span class="text-[#1a7554]">Updates on Our Latest Offers</span>
+        </div>
+        <p class="text-xl mt-6">Get 25% off on your first order just by subscribing to our newsletter</p>
+
+        <div class="flex justify-center mt-[65px]">
+          <div class="w-[485px] h-[72px] bg-white rounded-[45px] flex items-center px-8 mr-4">
+            <span class="text-xl font-medium text-black/40">Enter Email Address</span>
+          </div>
+          <button class="w-[211px] h-[72px] bg-[#ffc300] rounded-[41px] flex items-center justify-center">
+            <span class="text-xl font-medium">Subscribe</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-[#197852] rounded-[20px] mt-[194px] mx-7 p-20 z-10 relative">
+      <div class="container mx-auto">
+        <div class="flex justify-between">
+          <div class="flex items-start">
+            <div
+              class="w-[70px] h-[70px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-06-09/vzKAJUsRg0.png)] bg-cover rounded-full">
+            </div>
+            <span class="text-[28px] font-normal text-white ml-4 mt-2">FRUTERAA.</span>
+          </div>
+          <div class="flex flex-col mt-[84px] ml-[-220px]">
+            <p class="text-[20px] font-medium text-white mr-[40px]">
+              Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <div class="flex gap-4 mt-6">
+              <div v-for="(social, index) in socialMedia" :key="index" class="group relative">
+                <div
+                  class="w-[27px] h-[27px] rounded-full bg-white flex items-center justify-center transition-all duration-300 group-hover:w-[35px] group-hover:h-[35px]"
+                  :class="`group-hover:bg-[${social.color}]`">
+                  <a href="#"><i :class="`${social.icon} text-[20px] text-black group-hover:text-white`"></i></a>
+                </div>
+                <span
+                  class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
+                  {{ social.name }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-4 gap-8">
+            <div v-for="(column, index) in footerLinks" :key="index" class="flex flex-col">
+              <h4 class="text-xl font-semibold text-white">{{ column.title }}</h4>
+              <ul class="mt-4 space-y-3">
+                <li v-for="(link, linkIndex) in column.links" :key="linkIndex">
+                  <a href="#" class="text-base text-white hover:underline">{{ link }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/20 mt-16 pt-8">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center">
+              <span class="text-xl font-medium text-white">Copyright</span>
+              <div
+                class="w-5 h-5 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-06-09/c3KiHKvq1q.png)] bg-cover ml-2">
+              </div>
+              <span class="text-xl font-medium ml-2">
+                <span>2025 </span>
+                <span class="text-[#ffc300]">FAYHANZ FRUTERAA Website</span>
+                <span>. All Rights Reserved.</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-8">
+              <div class="flex items-center gap-4">
+                <span class="text-lg font-medium text-white">English</span>
+                <div
+                  class="w-[30px] h-[30px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-06-09/QzwsXv24Jj.png)] bg-cover">
+                </div>
+              </div>
+              <div class="h-[29px] w-px bg-white/20"></div>
+              <div class="flex items-center gap-4">
+                <span class="text-lg font-medium text-white">USD</span>
+                <div
+                  class="w-[30px] h-[30px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-06-09/2S9oLmMmLz.png)] bg-cover">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -547,11 +648,6 @@ import { ref } from 'vue';
 
 const isCategoryOpen = ref(false);
 const recentItems = ref([]);
-
-recentItems.value = [
-  { id: 1, name: "Organic Apple", price: "$2.99/kg", image: "https://i.pinimg.com/736x/6f/7b/0b/6f7b0bbf2a84909bbb19cad4fcedb294.jpg" },
-  { id: 2, name: "Fresh Avocado", price: "$4.50/pcs", image: "https://i.pinimg.com/736x/42/c4/35/42c43502869c7f686466775f1ddbb736.jpg" }
-];
 
 recentItems.value = [
   { id: 1, name: "Organic Apple", price: "$2.99/kg", image: "https://i.pinimg.com/736x/6f/7b/0b/6f7b0bbf2a84909bbb19cad4fcedb294.jpg" },
@@ -632,7 +728,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       scrollAmount += scrollSpeed;
 
-      // Reset scroll position when reaching the duplicated content
       if (scrollAmount >= content.scrollWidth / 2) {
         scrollAmount = 0;
         container.scrollLeft = 0;
@@ -642,26 +737,51 @@ document.addEventListener('DOMContentLoaded', function () {
       animationId = requestAnimationFrame(autoScroll);
     }
 
-    // Pause on hover
     container.addEventListener('mouseenter', () => {
       isHovered = true;
     });
 
-    // Resume when mouse leaves
     container.addEventListener('mouseleave', () => {
       isHovered = false;
       animationId = requestAnimationFrame(autoScroll);
     });
 
-    // Start auto-scroll
     animationId = requestAnimationFrame(autoScroll);
 
-    // Cleanup on unmount
     return () => {
       cancelAnimationFrame(animationId);
     };
   }
 });
+const socialMedia = [
+  { icon: 'fab fa-instagram', name: 'Instagram', color: '#E1306C' },
+  { icon: 'fab fa-facebook-f', name: 'Facebook', color: '#1877F2' },
+  { icon: 'fab fa-youtube', name: 'YouTube', color: '#FF0000' },
+  { icon: 'fab fa-twitter', name: 'Twitter', color: '#1DA1F2' }
+]
+
+const footerLinks = [
+  {
+    title: 'Company',
+    links: ['About Us', 'Blog', 'Career', 'Contact Us']
+  },
+  {
+    title: 'Customer Services',
+    links: ['My Account', 'Track Your Order', 'Return', 'FAQ']
+  },
+  {
+    title: 'Our Information',
+    links: ['Privacy', 'User Terms & Condition', 'Return Policy']
+  },
+  {
+    title: 'Contact Info',
+    links: [
+      '+62-815-1472-0062',
+      'fruteraa@gmail.com',
+      'Jl. Cisadane N1. No 16, Cikarang, kota Bekasi'
+    ]
+  }
+]
 </script>
 
 <style scoped>
@@ -777,5 +897,21 @@ section:nth-of-type(3) {
   50% {
     transform: translateY(-10px);
   }
+}
+
+.group:hover .group-hover\:bg-\[\#E1306C\] {
+  background-color: #E1306C;
+}
+
+.group:hover .group-hover\:bg-\[\#1877F2\] {
+  background-color: #1877F2;
+}
+
+.group:hover .group-hover\:bg-\[\#FF0000\] {
+  background-color: #FF0000;
+}
+
+.group:hover .group-hover\:bg-\[\#1DA1F2\] {
+  background-color: #1DA1F2;
 }
 </style>
