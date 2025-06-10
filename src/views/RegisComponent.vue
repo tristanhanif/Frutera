@@ -25,7 +25,7 @@ const register = () => {
   form.lastName = '';
   form.email = '';
   form.password = '';
-  window.location = '/'
+  window.location = '/login';
 }
 </script>
 
